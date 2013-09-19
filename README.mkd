@@ -11,7 +11,7 @@ npm install -g lodash-inspect
 ## Usage with lodash-cli
 
 ```sh
-$ lodash -m -o assets/js/lodash.min.js legacy include=$(lodash-inspect assets/js/app.js)
+$ lodash legacy include=$(lodash-inspect assets/js/app.js)
 ```
 
 ## API usage
