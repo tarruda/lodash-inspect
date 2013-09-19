@@ -1,5 +1,6 @@
 global.expect = require('chai').expect;
-var inspect = require('../src').inspect;
+var p = require('acorn').parse;
+var inspect = require('../src');
 
 
 var fixture = [
@@ -34,7 +35,7 @@ var fixture = [
 run({
   'collect': {
     "collects used lodash methods": function() {
-      expect(inspect(fixture)).to.deep.eql([
+      expect(inspect(p(fixture))).to.deep.eql([
         'forEachRight', 'map', 'reduce', 'unzip'
       ]);
     },

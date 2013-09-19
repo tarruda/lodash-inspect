@@ -6,24 +6,22 @@ var escope = require('escope');
 
 var methods = [
   'after', 'assign', 'bind', 'bindAll', 'bindKey', 'chain', 'compact',
-  'compose', 'concat', 'countBy', 'createCallback', 'curry', 'debounce',
-  'defaults', 'defer', 'delay', 'difference', 'filter', 'flatten', 'forEach',
+  'compose', 'countBy', 'createCallback', 'curry', 'debounce', 'defaults',
+  'defer', 'delay', 'difference', 'filter', 'flatten', 'forEach',
   'forEachRight', 'forIn', 'forInRight', 'forOwn', 'forOwnRight', 'functions',
   'groupBy', 'indexBy', 'initial', 'intersection', 'invert', 'invoke', 'keys',
   'map', 'max', 'memoize', 'merge', 'min', 'object', 'omit', 'once', 'pairs',
-  'partial', 'partialRight', 'pick', 'pluck', 'pull', 'push', 'range',
-  'reject', 'remove', 'rest', 'reverse', 'shuffle', 'slice', 'sort', 'sortBy',
-  'splice', 'tap', 'throttle', 'times', 'toArray', 'transform', 'union',
-  'uniq', 'unshift', 'unzip', 'values', 'where', 'without', 'wrap', 'zip',
-  'clone', 'cloneDeep', 'contains', 'escape', 'every', 'find', 'findIndex',
-  'findKey', 'findLast', 'findLastIndex', 'findLastKey', 'has', 'identity',
-  'indexOf', 'isArguments', 'isArray', 'isBoolean', 'isDate', 'isElement',
-  'isEmpty', 'isEqual', 'isFinite', 'isFunction', 'isNaN', 'isNull',
-  'isNumber', 'isObject', 'isPlainObject', 'isRegExp', 'isString',
-  'isUndefined', 'join', 'lastIndexOf', 'mixin', 'noConflict', 'parseInt',
-  'pop', 'random', 'reduce', 'reduceRight', 'result', 'shift', 'size', 'some',
-  'sortedIndex', 'runInContext', 'template', 'unescape', 'uniqueId', 'value',
-  'first', 'last'
+  'partial', 'partialRight', 'pick', 'pluck', 'pull', 'range', 'reject',
+  'remove', 'rest', 'shuffle', 'sortBy', 'tap', 'throttle', 'times', 'toArray',
+  'transform', 'union', 'uniq', 'unzip', 'values', 'where', 'without', 'wrap',
+  'zip', 'clone', 'cloneDeep', 'contains', 'escape', 'every', 'find',
+  'findIndex', 'findKey', 'findLast', 'findLastIndex', 'findLastKey', 'has',
+  'identity', 'indexOf', 'isArguments', 'isArray', 'isBoolean', 'isDate',
+  'isElement', 'isEmpty', 'isEqual', 'isFinite', 'isFunction', 'isNaN',
+  'isNull', 'isNumber', 'isObject', 'isPlainObject', 'isRegExp', 'isString',
+  'isUndefined', 'lastIndexOf', 'mixin', 'noConflict', 'parseInt', 'random',
+  'reduce', 'reduceRight', 'result', 'size', 'some', 'sortedIndex',
+  'runInContext', 'template', 'unescape', 'uniqueId', 'value', 'first', 'last'
 ];
 
 
@@ -61,7 +59,7 @@ var postOrder = {
 };
 
 
-function inspectAst(ast) {
+module.exports = function(ast) {
   var context = {
     scopes: escope.analyze(ast).scopes,
     found: {}
@@ -74,13 +72,4 @@ function inspectAst(ast) {
     }
   });
   return Object.keys(context.found).sort();
-}
-
-
-function inspect(source) {
-  return inspectAst(acorn.parse(source));
-}
-
-
-exports.inspect = inspect;
-exports.inspectAst = inspectAst;
+};
