@@ -1,7 +1,7 @@
 {
   "name": "lodash-inspect",
   "description": "Inspects a piece of javascript source code or AST to guess the required lodash features",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/tarruda/lodash-inspect",
   "author": {
     "name": "Thiago de Arruda",
