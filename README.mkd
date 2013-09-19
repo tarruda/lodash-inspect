@@ -1,14 +1,28 @@
 # lodash-inspect
 
-> Inspects a piece of javascript source code or AST to guess the required lodash features
+> Inspects a piece of javascript source code or AST and "guesses" the required lodash features
 
 ## Installation
 
 ```sh
-npm install --save lodash-inspect
+npm install -g lodash-inspect
 ```
 
-## Usage
+## Usage with lodash-cli
+
+```sh
+$ lodash -m -o assets/js/lodash.min.js legacy include=$(lodash-inspect assets/js/app.js)
+```
+
+## API usage
+
+```js
+var fs = require('fs');
+var inspect = require('lodash-inspect');
+var acorn = require('acorn');
+
+console.log(inspect(acorn.parse(fs.readFileSync('assets/js/app.js', 'utf8'))));
+```
 
 ## Development
 
