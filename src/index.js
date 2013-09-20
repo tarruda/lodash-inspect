@@ -4,26 +4,8 @@ var acorn = require('acorn');
 var escope = require('escope');
 
 
-var methods = [
-  'after', 'assign', 'bind', 'bindAll', 'bindKey', 'chain', 'compact',
-  'compose', 'countBy', 'createCallback', 'curry', 'debounce', 'defaults',
-  'defer', 'delay', 'difference', 'filter', 'flatten', 'forEach',
-  'forEachRight', 'forIn', 'forInRight', 'forOwn', 'forOwnRight', 'functions',
-  'groupBy', 'indexBy', 'initial', 'intersection', 'invert', 'invoke', 'keys',
-  'map', 'max', 'memoize', 'merge', 'min', 'object', 'omit', 'once', 'pairs',
-  'partial', 'partialRight', 'pick', 'pluck', 'pull', 'range', 'reject',
-  'remove', 'rest', 'shuffle', 'sortBy', 'tap', 'throttle', 'times', 'toArray',
-  'transform', 'union', 'uniq', 'unzip', 'values', 'where', 'without', 'wrap',
-  'zip', 'clone', 'cloneDeep', 'contains', 'escape', 'every', 'find',
-  'findIndex', 'findKey', 'findLast', 'findLastIndex', 'findLastKey', 'has',
-  'identity', 'indexOf', 'isArguments', 'isArray', 'isBoolean', 'isDate',
-  'isElement', 'isEmpty', 'isEqual', 'isFinite', 'isFunction', 'isNaN',
-  'isNull', 'isNumber', 'isObject', 'isPlainObject', 'isRegExp', 'isString',
-  'isUndefined', 'lastIndexOf', 'mixin', 'noConflict', 'parseInt', 'random',
-  'reduce', 'reduceRight', 'result', 'size', 'some', 'sortedIndex',
-  'runInContext', 'template', 'unescape', 'uniqueId', 'value', 'first', 'last'
-];
-
+// thanks @akre54(https://github.com/tarruda/lodash-inspect/issues/1) for this trick
+var methods = _.functions(_);
 
 _.each(methods, function(name) {
   methods[name] = true;
