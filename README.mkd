@@ -17,11 +17,9 @@ $ lodash legacy include=$(lodash-inspect assets/js/app.js)
 ## API usage
 
 ```js
-var fs = require('fs');
 var inspect = require('lodash-inspect');
-var acorn = require('acorn');
 
-console.log(inspect(acorn.parse(fs.readFileSync('assets/js/app.js', 'utf8'))));
+console.log(inspect('assets/js/app.js'));
 ```
 
 ## Development
