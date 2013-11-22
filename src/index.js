@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var fs = require('fs');
 var traverse = require('ast-traverse');
 var acorn = require('acorn');
 var escope = require('escope');
@@ -40,8 +41,12 @@ var postOrder = {
   }
 };
 
-
+// Pass in an acorn-parsed AST or path to a file
 module.exports = function(ast) {
+  if (typeof ast === 'string'){
+    ast = acorn.parse(fs.readFileSync(ast, 'utf8'));
+  }
+
   var context = {
     scopes: escope.analyze(ast).scopes,
     found: {}
